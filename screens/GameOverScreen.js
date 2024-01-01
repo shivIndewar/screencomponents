@@ -3,16 +3,16 @@ import Title from "../componenets/ui/title";
 import Colors from "../constants/colors";
 import PrimaryButton from "../componenets/ui/PrimaryButtons";
 
-function GameOverScreen() {
+function GameOverScreen({roundsNumber, userNumer, onStartNewGame}) {
     return <View style={styles.rootContainer}>
         <Title>GAME OVER!!</Title>
         <View style={styles.imageContainer}>
             <Image style={styles.image} source={require('../assets/images/success.png')} />
         </View>
-        <Text style={styles.summaryText}>Your phone needed <Text style={styles.highlight}>X </Text> 
-            rounds to guess the number <Text style={styles.highlight}>Y</Text>.</Text> 
+        <Text style={styles.summaryText}>Your phone needed <Text style={styles.highlight}>{roundsNumber} </Text> 
+        rounds to guess the number <Text style={styles.highlight}>{userNumer}</Text>.</Text> 
 
-        <PrimaryButton>Start New Game!</PrimaryButton>    
+        <PrimaryButton onPress={onStartNewGame}>Start New Game!</PrimaryButton>    
     </View>;
 }
 
@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
      summaryText :{
         fontFamily: 'open-sans',
         fontSize:24,
-        textAlign:'center'
+        textAlign:'center',
+        marginVertical : 24
      },
      highlight:{
         fontFamily:'open-sans-bold',
