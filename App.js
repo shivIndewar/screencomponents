@@ -30,8 +30,9 @@ export default function App() {
     setgameIsOverState(false);
   }
 
-  function gameOverHandler(params) {
+  function gameOverHandler(numberOfRounds) {
     setgameIsOverState(true);
+    setGuessRounds(numberOfRounds);
   }
 
   function onStartNewGameHandler(params) {
